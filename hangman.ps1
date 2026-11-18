@@ -1,7 +1,7 @@
 # 단어 리스트 뽑아오고 기본 변수 일부 호출
-$easy_list = (Get-Content -Path ".\easy.txt" -Encoding utf8).Where({ -not [string]::IsNullOrWhiteSpace($_) })
-$medium_list = (Get-Content -Path ".\medium.txt" -Encoding utf8).Where({ -not [string]::IsNullOrWhiteSpace($_) })
-$hard_list = (Get-Content -Path ".\hard.txt" -Encoding utf8).Where({ -not [string]::IsNullOrWhiteSpace($_) })
+$easy_list = (Get-Content -Path ".\list\easy.txt" -Encoding utf8).Where({ -not [string]::IsNullOrWhiteSpace($_) })
+$medium_list = (Get-Content -Path ".\list\medium.txt" -Encoding utf8).Where({ -not [string]::IsNullOrWhiteSpace($_) })
+$hard_list = (Get-Content -Path ".\list\hard.txt" -Encoding utf8).Where({ -not [string]::IsNullOrWhiteSpace($_) })
 $answer = ""
 
 # 게임 진행용 함수들
