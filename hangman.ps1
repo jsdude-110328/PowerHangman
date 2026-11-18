@@ -1,19 +1,19 @@
-# 단어 리스트 뽑아오기 
+# 단어 리스트 뽑아오고 기본 변수 일부 호출
 $easy_list = (Get-Content -Path ".\easy.txt" -Encoding utf8).Where({ -not [string]::IsNullOrWhiteSpace($_) })
 $medium_list = (Get-Content -Path ".\medium.txt" -Encoding utf8).Where({ -not [string]::IsNullOrWhiteSpace($_) })
 $hard_list = (Get-Content -Path ".\hard.txt" -Encoding utf8).Where({ -not [string]::IsNullOrWhiteSpace($_) })
+$answer = ""
 
 # 게임 진행용 함수들
 function Get-Words {
-    param ($ans)
+    param ($ans, [ref]$answer)
 
     switch ($ans) {
-        "1" { return $($easy_list | Get-Random) }
-        "2" { return $($medium_list | Get-Random) }
-        "3" { return $($hard_list | Get-Random) }
+        "1" { $answer.Value = $($easy_list | Get-Random) }
+        "2" { $answer.Value = $($medium_list | Get-Random) }
+        "3" { $answer.Value = $($hard_list | Get-Random) }
     }
 }
-
 
 ## 프로그램 로직
 # 1. Get-Words 함수로 정답 단어 뽑아오기
